@@ -16,13 +16,15 @@ namespace nodesparkle {
 	}
 
 	void _win_sparkle_set_appcast_url(const FunctionCallbackInfo<Value>& args) {
-	  	std::string url(*v8::String::Utf8Value(args[0]));
-	  	win_sparkle_set_appcast_url(url.c_str());
+		Isolate* isolate = args.GetIsolate();
+		std::string url(*v8::String::Utf8Value(isolate, args[0]));
+		win_sparkle_set_appcast_url(url.c_str());
 	}
 	
 	void _win_sparkle_set_lang(const FunctionCallbackInfo<Value>& args) {
-	  	std::string lang(*v8::String::Utf8Value(args[0]));
-	  	win_sparkle_set_lang(lang.c_str());
+		Isolate* isolate = args.GetIsolate();
+		std::string lang(*v8::String::Utf8Value(isolate, args[0]));
+		win_sparkle_set_lang(lang.c_str());
 	}
 
 	void _win_sparkle_check_update_with_ui(const FunctionCallbackInfo<Value>& args) {
@@ -38,8 +40,9 @@ namespace nodesparkle {
 	}
 
 	void _win_sparkle_set_automatic_check_for_updates(const FunctionCallbackInfo<Value>& args) {
-		int state = ((bool) args[0]->BooleanValue()) ? 1 : 0;
-	  	win_sparkle_set_automatic_check_for_updates(state);
+		Isolate* isolate = args.GetIsolate();
+		int state = ((bool) args[0]->BooleanValue(isolate)) ? 1 : 0;
+		win_sparkle_set_automatic_check_for_updates(state);
 	}
 
 	void _win_sparkle_get_automatic_check_for_updates(const FunctionCallbackInfo<Value>& args) {
