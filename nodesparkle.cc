@@ -60,7 +60,6 @@ namespace nodesparkle {
 	  	NODE_SET_METHOD(exports, "winSparkleCheckUpdateWithoutUI", _win_sparkle_check_update_without_ui);
 	  	NODE_SET_METHOD(exports, "winSparkleInit", _win_sparkle_init);
 	  	NODE_SET_METHOD(exports, "winSparkleSetAutomaticCheckForUpdates", _win_sparkle_set_automatic_check_for_updates);
-	  	NODE_SET_METHOD(exports, "winSparkleGetAutomaticCheckForUpdates", _win_sparkle_get_automatic_check_for_updates);
 	}
 
 	NODE_MODULE(addon, init)
